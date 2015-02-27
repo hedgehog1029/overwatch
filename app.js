@@ -12,6 +12,7 @@ var recps = [];
 var mail = [];
 
 irc.event.on("msg", function(from, to, msg) {
+    logger.log("from: " + from + ", to: " + to, ", msg: " + msg);
     if (from == user) {
         logger.log("from == user returned true");
         mail.some(function(value) {
