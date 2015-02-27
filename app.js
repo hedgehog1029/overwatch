@@ -19,7 +19,7 @@ irc.event.on("msg", function(from, to, msg) {
             logger.log("nick: " + value["nick"] + ", sender: " + value["sender"] + ", msg: " + value["msg"]);
             if (recps.indexOf(value["nick"]) != -1) {
                 irc.client.say(value["nick"], "Message from " + value["sender"] + ": " + value["msg"]);
-                recps.splice(recps.indexOf(value["nick"], value["nick"].length));
+                recps.splice(recps.indexOf(value["nick"]), 1);
                 mail.splice(index, 1);
             }
         });
