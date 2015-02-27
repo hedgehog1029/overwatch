@@ -14,6 +14,6 @@ exports.port = "6667";
 // Configure your bot here.
 
 // This is the name your bot will connect with.
-exports.name = "Overwatch";
+exports.name = "OverBot";
 
 exports.channels = [ "#channel1", "#channel2" ];
