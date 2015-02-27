@@ -12,6 +12,9 @@ var visitors = [];
 var mail = [];
 
 irc.event.on("msg", function(from, to, msg) {
+
+    logger.log("debug: " + msg.indexOf("!") + " and " + msg.indexOf("mail"));
+
     if (msg.toLowerCase().indexOf("penguin") != -1) {
         irc.client.say(to, "ALL HAIL THE OVERLORDS");
     } else if (msg.indexOf("!") == 0) {
