@@ -10,6 +10,6 @@ logger.log(config.name);
 
 irc.event.on("msg", function(from, to, msg) {
     if (msg.indexOf("penguin") != -1) {
-        client.say(from, "ALL HAIL THE OVERLORDS");
+        irc.client.say(from, "ALL HAIL THE OVERLORDS");
     }
 });
