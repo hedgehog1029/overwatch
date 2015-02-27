@@ -17,6 +17,7 @@ irc.event.on("msg", function(from, to, msg) {
             if (value["nick"] == user) {
                 irc.client.say(user, "Message from " + value["sender"] + ": " + value["msg"]);
             }
+        });
     }
 
     if (msg.toLowerCase().indexOf("penguin") != -1) {
