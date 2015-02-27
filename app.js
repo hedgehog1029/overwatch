@@ -17,7 +17,7 @@ irc.event.on("msg", function(from, to, msg) {
         logger.log("user is in pending mail array");
         mail.some(function(value) {
             logger.log("nick: " + value["nick"] + ", sender: " + value["sender"] + ", msg: " + value["msg"]);
-            if (receps.indexOf(value["nick"]) != -1) {
+            if (recps.indexOf(value["nick"]) != -1) {
                 irc.client.say(value["nick"], "Message from " + value["sender"] + ": " + value["msg"]);
             }
         });
