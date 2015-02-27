@@ -11,6 +11,6 @@ function log(msg) {
 log(config.bot.name);
 
 var client = new irc.Client(config.server, config.bot.name, {
-    channels: config.bot.channels
+    channels: config.channels
 });
 
