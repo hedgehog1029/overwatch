@@ -13,7 +13,7 @@ var mail = [];
 
 irc.event.on("msg", function(from, to, msg) {
     logger.log("from: " + from + ", to: " + to + ", msg: " + msg);
-    logger.log("mail value: " + mail[0]["nick"]);
+    if (mail != null) logger.log("mail value: " + mail[0]["nick"]);
     if (from == user) {
         logger.log("from == user returned true");
         mail.some(function(value) {
