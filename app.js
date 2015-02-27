@@ -15,7 +15,7 @@ irc.event.on("msg", function(from, to, msg) {
     if (from == user) {
         mail.some(function(value) {
             if (value["nick"] == user) {
-                irc.client.say(user, "Message from " + value["sender"] + ": " + value["msg"];
+                irc.client.say(user, "Message from " + value["sender"] + ": " + value["msg"]);
             }
     }
 
