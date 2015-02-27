@@ -12,11 +12,9 @@ var recps = [];
 var mail = [];
 
 irc.event.on("msg", function(from, to, msg) {
-    logger.log("from: " + from + ", to: " + to + ", msg: " + msg);
     if (recps.indexOf(from) != -1) {
         logger.log("user is in pending mail array");
         mail.some(function(value, index) {
-            logger.log("nick: " + value["nick"] + ", sender: " + value["sender"] + ", msg: " + value["msg"]);
             if (recps.indexOf(value["nick"]) != -1) {
                 irc.client.say(value["nick"], "Message from " + value["sender"] + ": " + value["msg"]);
                 recps.splice(recps.indexOf(value["nick"]), 1);
@@ -33,7 +31,7 @@ irc.event.on("msg", function(from, to, msg) {
             var message = msg.substring(msg.indexOf(" ", 6), msg.length);
             recps.push(user);
             mail.push({"nick": user, "sender": from, "msg": message});
-            irc.client.say(from, "I'll pass that on when " + user + " is around.");
+            irc.client.say(to, "I'll pass that on when " + user + " is around.");
         }
     }
 });
