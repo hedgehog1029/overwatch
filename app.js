@@ -1,16 +1,9 @@
 var irc = require("irc"),
     colors = require("colors");
 
+var logger = require("./lib/log.js"),
+    irc = require("./lib/ic.js");
 var config = require("./config/config.js");
-
-function log(msg) {
-    console.log("overwatch > ".red + msg);
-}
 
 //tests
 log(config.name);
-
-var client = new irc.Client(config.server, config.name, {
-    channels: config.channels
-});
-
