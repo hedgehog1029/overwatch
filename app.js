@@ -26,7 +26,7 @@ irc.event.on("msg", function(from, to, msg) {
         irc.client.say(to, "ALL HAIL THE OVERLORDS");
     } else if (msg.indexOf("!") == 0) {
         if (msg.indexOf("tell") == 1) {
-            var user = msg.substring(5, msg.indexOf(" ", 6));
+            var user = msg.substring(6, msg.indexOf(" ", 6));
             var message = msg.substring(msg.indexOf(" ", 6), msg.length);
             recps.push(user);
             mail.push({"nick": user, "sender": from, "msg": message});
