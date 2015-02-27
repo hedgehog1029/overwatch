@@ -9,7 +9,7 @@ var config = require("./config/config.js");
 logger.log(config.name);
 
 irc.event.on("msg", function(from, to, msg) {
-    if (s.indexOf("penguin") != -1) {
+    if (msg.indexOf("penguin") != -1) {
         client.say(from, "ALL HAIL THE OVERLORDS");
     }
 });
