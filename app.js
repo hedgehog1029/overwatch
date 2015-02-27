@@ -6,4 +6,4 @@ var logger = require("./lib/log.js"),
 var config = require("./config/config.js");
 
 //tests
-log(config.name);
+logger.log(config.name);
