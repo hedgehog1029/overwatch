@@ -13,9 +13,8 @@ var mail = [];
 
 irc.event.on("msg", function(from, to, msg) {
     logger.log("from: " + from + ", to: " + to + ", msg: " + msg);
-    if (mail != null) logger.log("mail value: " + mail[0]["nick"]);
-    if (from == user) {
-        logger.log("from == user returned true");
+    if (recps.indexOf(from) != -1) {
+        logger.log("user is in pending mail array");
         mail.some(function(value) {
             logger.log("nick: " + value["nick"] + ", sender: " + value["sender"] + ", msg: " + value["msg"]);
             if (value["nick"] == user) {
