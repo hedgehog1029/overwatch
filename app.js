@@ -15,10 +15,12 @@ irc.event.on("msg", function(from, to, msg) {
     logger.log("from: " + from + ", to: " + to + ", msg: " + msg);
     if (recps.indexOf(from) != -1) {
         logger.log("user is in pending mail array");
-        mail.some(function(value) {
+        mail.some(function(value, index) {
             logger.log("nick: " + value["nick"] + ", sender: " + value["sender"] + ", msg: " + value["msg"]);
             if (recps.indexOf(value["nick"]) != -1) {
                 irc.client.say(value["nick"], "Message from " + value["sender"] + ": " + value["msg"]);
+                recps.splice(recps.indexOf(value["nick"], value["nick"].length));
+                mail.splice(index, 1);
             }
         });
     }
