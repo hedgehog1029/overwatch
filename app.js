@@ -10,7 +10,7 @@ function log(msg) {
 //tests
 log(config.name);
 
-var client = new irc.Client(config.server, config.bot.name, {
+var client = new irc.Client(config.server, config.name, {
     channels: config.channels
 });
 
