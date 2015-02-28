@@ -1,16 +1,11 @@
 var irc = require("irc"),
     colors = require("colors");
 
+// Init.
 var logger = require("./lib/log.js"),
     irc = require("./lib/irc.js");
 var config = require("./config/config.js");
 
-//tests
-logger.log(config.name);
-
-var recps = [];
-var mail = [];
-
-irc.event.on("msg", function(from, to, msg) {
-
-});
+// Console startup.
+logger.log("overwatch started.");
+logger.log("connected to server with nick " + config.name.green);
