@@ -31,7 +31,6 @@ c.register("tell", function(client, from, to, msg) {
 
 c.registerAny(function(client, from, to, msg) {
     if (recps.indexOf(from) != -1) {
-        logger.log("user is in pending mail array");
         mail.some(function(value, index) {
             if (recps.indexOf(value["nick"]) != -1) {
                 client.say(value["nick"], "Message from " + value["sender"] + ": " + value["msg"]);
