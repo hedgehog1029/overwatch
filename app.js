@@ -23,9 +23,7 @@ irc.event.on("msg", function(from, to, msg) {
         });
     }
 
-    if (msg.toLowerCase().indexOf("penguin") != -1) {
-        irc.client.say(to, "ALL HAIL THE OVERLORDS");
-    } else if (msg.indexOf("!") == 0) {
+    if (msg.indexOf("!") == 0) {
         if (msg.indexOf("tell") == 1) {
             var user = msg.substring(6, msg.indexOf(" ", 6));
             var message = msg.substring(msg.indexOf(" ", 6), msg.length);
