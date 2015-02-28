@@ -20,7 +20,7 @@ var mail = [];
 // This is where you register   //
 // your commands and callbacks. //
 
-c.register("tell", function(client, msg) {
+c.register("tell", function(client, from, to, msg) {
     var user = msg.substring(6, msg.indexOf(" ", 6));
     var message = msg.substring(msg.indexOf(" ", 6), msg.length);
 
@@ -29,7 +29,7 @@ c.register("tell", function(client, msg) {
     client.say(to, "I'll pass that on when " + user + " is around.");
 });
 
-c.registerAny(function(client, msg) {
+c.registerAny(function(client, from, to, msg) {
     if (recps.indexOf(from) != -1) {
         logger.log("user is in pending mail array");
         mail.some(function(value, index) {
