@@ -3,8 +3,10 @@ var irc = require("irc"),
 
 // Init.
 var logger = require("./lib/log.js"),
-    irc = require("./lib/irc.js");
-var config = require("./config/config.js");
+    irc = require("./lib/irc.js"),
+    simple = require("./lib/simple-command.js");
+var config = require("./config/config.js"),
+    cmd = require("./config/commands.js");
 
 // Console startup.
 logger.log("overwatch started.");
