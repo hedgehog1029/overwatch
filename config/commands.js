@@ -6,6 +6,9 @@ var c = require("../lib/complex-command.js");
 // to execute code when your    //
 // command is executed.         //
 
+// An example is shown here of  //
+// a simple mail system.        //
+
 //       ** VARIABLES **        //
 // You may register variables   //
 // for your own use here.       //
