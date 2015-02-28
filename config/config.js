@@ -22,11 +22,15 @@ exports.channels = [ "#channel1", "#channel2" ];
 // Only simple commands can be written here.  //
 // For more complex commands, use commands.js.//
 
-exports.commands = [{"command": "boo", "response": "BOO!"}];
+exports.commands = [
+    {"command": "boo", "response": "BOO!"}
+];
 
 // Mentions can be in any piece of text. //
 
-exports.mentions = [{"keyword": "penguin", "response": "ALL HAIL THE OVERLORDS!"}];
+exports.mentions = [
+    {"keyword": "penguin", "response": "ALL HAIL THE OVERLORDS!"}
+];
 
 // ***** MISC CONFIGURATION *****//
 
