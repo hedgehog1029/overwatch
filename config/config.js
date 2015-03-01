@@ -15,7 +15,7 @@ exports.name = "Overwatch";
 
 exports.user = "overwatchbot";
 exports.realname = "overwatch, an IRC bot";
-exports.channels = [ "#channel1", "#channel2" ];
+exports.channels = [ "#kurisu", "#cookiepowered" ];
 
 // *** COMMANDS AND RESPONSES ***             //
 // Commands are prefixed with ! internally.   //
@@ -23,13 +23,16 @@ exports.channels = [ "#channel1", "#channel2" ];
 // For more complex commands, use commands.js.//
 
 exports.commands = [
-    {"command": "boo", "response": "BOO!"}
+    {"command": "boo", "response": "BOO!"},
+    {"command": "magic", "response": "There will be no foolish wand-waving or silly incantations in this chatroom."},
+    {"command": "caramel", "response": "Our lord and saviour; http://caramel.ga"}
 ];
 
 // Mentions can be in any piece of text. //
 
 exports.mentions = [
-    {"keyword": "penguin", "response": "ALL HAIL THE OVERLORDS!"}
+    {"keyword": "penguin", "response": "ALL HAIL THE OVERLORDS!"},
+    {"keyword": "meow", "response": "(=^･ω･^=)"}
 ];
 
 // ***** MISC CONFIGURATION *****//

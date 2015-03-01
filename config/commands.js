@@ -16,6 +16,8 @@ var c = require("../lib/complex-command.js");
 var recps = [];
 var mail = [];
 
+var http = require("https");
+
 //       ** FUNCTIONS **        //
 // This is where you register   //
 // your commands and callbacks. //
@@ -39,4 +41,27 @@ c.registerAny(function(client, from, to, msg) {
             }
         });
     }
+});
+
+c.register("g", function(client, from, to, msg) {
+    var searchText = msg.substring(3, msg.length).replace(/\s+/g, "+");
+    var url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAruE7wV7LaL1tZ1XJRHCtA7pmuz9EfXl8&cx=006735756282586657842:s7i_4ej9amu&q=" + searchText;
+
+    http.get(url, function(res) {
+	if (res.statusCode == 200) {
+		var data = '';
+		
+		res.on("data", function(chunk) {
+			data += chunk;
+		});
+
+		res.on("end", function() {
+			var j = JSON.parse(data);
+			if (j["items"] != null) {
+				client.say(to, from + ": " + j["items"][0]["snippet"]);
+				client.say(to, "From " + j["items"][0]["link"]);
+			}
+		});
+	}
+    });
 });
