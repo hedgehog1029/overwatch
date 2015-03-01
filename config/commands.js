@@ -18,6 +18,7 @@ var mail = [];
 
 var http = require("https");
 var wolfram = require("wolfram-alpha").createClient("G4AJQ5-XU4X2K77KV", { "format": "plaintext" });
+var logger = require("../lib/log.js");
 
 //       ** FUNCTIONS **        //
 // This is where you register   //
