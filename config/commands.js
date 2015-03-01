@@ -71,6 +71,7 @@ c.register("g", function(client, from, to, msg) {
 c.register("compute", function(client, from, to, msg) {
     var searchText = msg.substring(9, msg.length).replace(/\s+/g, "+");
 
+    client.say(to, from + ": computing...");
     wolfram.query(searchText, function(err, result) {
         if(err) throw err;
         if(result[1] == null) return;
