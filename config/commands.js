@@ -72,6 +72,7 @@ c.register("compute", function(client, from, to, msg) {
 
     wolfram.query(searchText, function(err, result) {
         if(err) throw err;
+        logger.log("result: %j" + result);
         client.say(to, from + ": " + result[1]["subpods"][0]["text"]);
     });
 });
