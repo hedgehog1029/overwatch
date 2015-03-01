@@ -17,6 +17,7 @@ var recps = [];
 var mail = [];
 
 var http = require("https");
+var wolfram = require("wolfram-alpha").createClient("G4AJQ5-XU4X2K77KV", { "format": "plaintext" });
 
 //       ** FUNCTIONS **        //
 // This is where you register   //
@@ -63,5 +64,14 @@ c.register("g", function(client, from, to, msg) {
 			}
 		});
 	}
+    });
+});
+
+c.register("compute", function(client, from, to, msg) {
+    var searchText = msg.substring(9, msg.length).replace(/\s+/g, "+");
+
+    wolfram.query(searchText, function(err, result) {
+        if(err) throw err;
+        client.say(to, from + ": " + result[1]["subpods"][0]["text"]);
     });
 });
