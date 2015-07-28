@@ -30,7 +30,8 @@ exports.channels = [ "#kurisu", "#cookiepowered" ];
 exports.commands = [
     {"command": "boo", "response": "BOO!"},
     {"command": "magic", "response": "There will be no foolish wand-waving or silly incantations in this chatroom."},
-    {"command": "caramel", "response": "Our lord and saviour; http://caramel.ga"}
+    {"command": "caramel", "response": "Our lord and saviour; http://caramel.ga"},
+    {"command": "help", "response": "Commands list: !boo, !magic, !caramel, !tell, !g, !compute"}
 ];
 
 // Mentions can be in any piece of text. //
