@@ -29,12 +29,12 @@ c.register("tell", function(client, from, to, msg) {
     var message = msg.substring(msg.indexOf(" ", 6), msg.length);
 
     recps.push(user);
-    mail.push({"user": user, "sender": client.client.getUserByID(from), "msg": message});
+    mail.push({"user": user, "sender": from, "msg": message});
     client.say(to, "I'll pass that on when " + user.profile.first_name + " is around.");
 });
 
 c.registerAny(function(client, from, to, msg) {
-    if (recps.indexOf(client.client.getUserByID(from)) != -1) {
+    if (recps.indexOf(from) != -1) {
         mail.some(function(value, index) {
             if (recps.indexOf(value["user"]) != -1) {
                 var dm = client.client.openDM(value["user"].id, function() {
