@@ -38,7 +38,7 @@ c.registerAny(function(client, from, to, msg) {
         mail.some(function(value, index) {
             if (recps.indexOf(value["user"]) != -1) {
                 client.client.openDM(value["user"].id, function(dm) {
-                    client.client.getChannelGroupOrDMById(dm.id).send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
+                    client.client.getChannelGroupOrDMByID(dm.id).send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
                 });
 
                 recps.splice(recps.indexOf(value["user"]), 1);
