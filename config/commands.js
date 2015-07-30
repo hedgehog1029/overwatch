@@ -32,10 +32,13 @@ c.register("tell", function(client, from, to, msg) {
         for (var u in users) {
             if (msg.substring(6, msg.indexOf(" ", 6)) == users[u].profile.first_name) {
                 user = users[u];
-                return;
+                break;
             }
         }
+    }
 
+    // If user *still* equals null
+    if (user == null) {
         client.say(to, "User " + msg.substring(6, msg.indexOf(" ", 6)) + " not found!");
         return;
     }
