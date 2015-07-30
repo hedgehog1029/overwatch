@@ -82,3 +82,8 @@ c.register("compute", function(client, from, to, msg) {
         client.say(to, from + ": " + result[1]["subpods"][0]["text"]);
     });
 });
+
+c.registerM(" wuvs dudu", function(client, from, to, msg) {
+	var person = msg.substring(0, msg.indexOf(" wuvs dudu", 0)).replace(/\s+/g, "-");
+	client.say(to, "http://" + person + ".eduardo-dudu-surita.com");
+});
