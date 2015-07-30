@@ -26,11 +26,34 @@ var logger = require("../lib/log.js");
 
 c.register("tell", function(client, from, to, msg) {
     var user = client.client.getUserByName(msg.substring(6, msg.indexOf(" ", 6)));
+
+    if (user == null){
+        client.say(to, "User " + msg.substring(6, msg.indexOf(" ", 6)) + " not found!");
+        return;
+    }
+
     var message = msg.substring(msg.indexOf(" ", 6), msg.length);
 
     recps.push(user);
     mail.push({"user": user, "sender": from, "msg": message});
     client.say(to, "I'll pass that on when " + user.profile.first_name + " is around.");
+});
+
+c.events.on("presence", function(user, presence) {
+    if (presence == "active") {
+        if (recps.indexOf(client.client.getUserByID(user)) != -1) {
+            mail.some(function(value, index) {
+                if (recps.indexOf(value["user"]) != -1) {
+                    client.client.openDM(value["user"].id, function(data) {
+                        client.client.getChannelGroupOrDMByID(data.channel.id).send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
+                    });
+
+                    recps.splice(recps.indexOf(value["user"]), 1);
+                    mail.splice(index, 1);
+                }
+            });
+        }
+    }
 });
 
 c.registerAny(function(client, from, to, msg) {
