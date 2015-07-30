@@ -37,12 +37,10 @@ c.registerAny(function(client, from, to, msg) {
     if (recps.indexOf(client.client.getUserByID(from)) != -1) {
         mail.some(function(value, index) {
             if (recps.indexOf(value["user"]) != -1) {
-                var dm;
-                client.client.openDM(value["user"].id, function(data) {
-                    dm = data.id;
+                var dm = client.client.openDM(value["user"].id, function() {
+                    this.send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
                 });
 
-                client.say(dm, "Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
                 recps.splice(recps.indexOf(value["user"]), 1);
                 mail.splice(index, 1);
             }
