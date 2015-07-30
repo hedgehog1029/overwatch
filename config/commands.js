@@ -28,6 +28,14 @@ c.register("tell", function(client, from, to, msg) {
     var user = client.client.getUserByName(msg.substring(6, msg.indexOf(" ", 6)));
 
     if (user == null){
+        var users = client.client.getUsers();
+        for (var u in users) {
+            if (msg.substring(6, msg.indexOf(" ", 6)) == users[u].profile.first_name) {
+                user = users[u];
+                return;
+            }
+        }
+
         client.say(to, "User " + msg.substring(6, msg.indexOf(" ", 6)) + " not found!");
         return;
     }
