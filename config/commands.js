@@ -39,7 +39,7 @@ c.register("tell", function(client, from, to, msg) {
     client.say(to, "I'll pass that on when " + user.profile.first_name + " is around.");
 });
 
-c.events.on("presence", function(user, presence) {
+c.events.on("presence", function(client, user, presence) {
     if (presence == "active") {
         if (recps.indexOf(client.client.getUserByID(user)) != -1) {
             mail.some(function(value, index) {
