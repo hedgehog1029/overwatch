@@ -41,11 +41,11 @@ c.register("tell", function(client, from, to, msg) {
 
 c.events.on("presence", function(client, user, presence) {
     if (presence == "active") {
-        if (recps.indexOf(client.client.getUserByID(user)) != -1) {
+        if (recps.indexOf(client.getUserByID(user)) != -1) {
             mail.some(function(value, index) {
                 if (recps.indexOf(value["user"]) != -1) {
-                    client.client.openDM(value["user"].id, function(data) {
-                        client.client.getChannelGroupOrDMByID(data.channel.id).send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
+                    client.openDM(value["user"].id, function(data) {
+                        client.getChannelGroupOrDMByID(data.channel.id).send("Message from " + value["sender"].profile.first_name + ": " + value["msg"]);
                     });
 
                     recps.splice(recps.indexOf(value["user"]), 1);
