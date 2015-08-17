@@ -10,7 +10,7 @@ exports.port = "6667";
 // ***** SLACK CONFIGURATION *****//
 // Add Slack bot key here. 		  //
 
-exports.slack_key = "xoxb-8312509056-5a3OxlnC1cuhAFi83x0ps3P3";
+exports.slack_key = "{slack-bot-key}";
 
 // ***** BOT CONFIGURATION ***** //
 // Configure your bot here.      //
